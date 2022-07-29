@@ -9,11 +9,11 @@ export default function Navbar() {
 
     return (
         <>
-            <AppBar position="static">
+            <AppBar  style={{backgroundColor:"#CEB5BE"}}>
                 <Toolbar variant="dense">
                     <Box style={{ cursor: "pointer" }} >
                         <Typography variant="h5" color="inherit">
-                            BlogPessoal
+                            
                         </Typography>
                     </Box>
 
