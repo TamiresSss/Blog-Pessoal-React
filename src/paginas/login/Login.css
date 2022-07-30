@@ -1,0 +1,14 @@
+.text-decorator-none{
+    text-decoration: none;
+}
+.textos1{
+    font-weight:bold !important ;
+}
+.imag{
+    background-image:url(https://recreio.uol.com.br/media/_versions/legacy/2021/09/10/teclado-1231703_widelg.jpg) !important;
+            background-repeat:no-repeat !important; 
+            width :100vh !important;
+            background-size:cover !important; 
+            background-position:center !important;
+            min-height: 100vh !important; 
+}
