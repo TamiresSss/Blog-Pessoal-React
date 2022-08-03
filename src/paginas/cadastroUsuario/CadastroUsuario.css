@@ -1,0 +1,15 @@
+.imagemCadastro {
+    background-image:url(https://cdn-icons-png.flaticon.com/512/2038/2038509.png) !important;
+            background-repeat:no-repeat !important; 
+            width :100vh !important;
+            background-size:cover !important; 
+            background-position:center !important;
+            min-height: 100vh !important;
+         }
+.textos2{
+    font-weight:bold !important ;
+}
+
+.botaoCancelar {
+    margin-right: 20px !important;
+}
