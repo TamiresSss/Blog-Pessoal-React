@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom';
 import UserLogin from '../../models/UserLogin';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../../services/Service';
-import useLocalStorage from 'react-use-localstorage';
+import { useDispatch } from 'react-redux';
+import { addToken } from '../../store/tokens/Actions';
 
 function Login() {
+
     let history = useNavigate();
-    const[token, setToken] = useLocalStorage('token');
+    const dispatch = useDispatch ();
+    const[token, setToken] = useState ('');
     const [userLogin, setUserLogin ] = useState<UserLogin>(
         {
             id: 0,
@@ -27,6 +30,7 @@ function Login() {
     }
     useEffect(() => {
         if (token != '') {
+            dispatch (addToken (token));
             history('/home')
         }
     }, [token])

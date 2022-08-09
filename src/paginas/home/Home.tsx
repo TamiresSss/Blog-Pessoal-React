@@ -1,14 +1,32 @@
 import { Button, Grid, Typography } from '@material-ui/core'
 import { Box } from '@mui/material'
-import React from 'react'
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem'
 import './Home.css'
 import ModalPostagem from "../../components/postagens/modalPostagem/ModalPostagem";
+import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/TokensReducer';
+import React, { useEffect } from 'react';
+import {Link} from 'react-router-dom'
 
 function Home() {
+
+
+  let navigate = useNavigate();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+
+  useEffect(() => {
+    if (token == "") {
+      alert("Você precisa estar logado")
+      navigate("/login")
+
+    }
+  }, [token])
   return (
     <>
-      <img className="titulo-imagem" src="https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1157543/808686_587371.png" alt=" " width="50%" height="50%" />
+      <img className="titulo-imagem" />
       <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#AE8594" }}>
         <Grid alignItems="center" item xs={6}>
           <Box paddingX={20} >
@@ -19,11 +37,16 @@ function Home() {
             <Box marginRight={1}>
               <ModalPostagem />
             </Box>
-            <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B", color: "white" }}>Ver Postagens</Button>
+            <Link to = "/postagens" className='text-decorator-none'>
+            <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B", color: "white" }}>
+              Ver Postagens
+            </Button>
+            </Link>
+            
           </Box>
         </Grid>
         <Grid item xs={6} >
-          <img src="https://i.imgur.com/H88yIo2.png" alt="" width="500px" height="500px" />
+          <img src="https://custom-images.strikinglycdn.com/res/hrscywv4p/image/upload/c_limit,fl_lossy,h_9000,w_1200,f_auto,q_auto/1157543/808686_587371.png" alt="" width="672px" height="600px" />
         </Grid>
         <Grid xs={12} style={{ backgroundColor: "white" }}>
           <TabPostagem />
