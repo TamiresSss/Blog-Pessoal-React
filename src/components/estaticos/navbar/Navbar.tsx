@@ -14,11 +14,12 @@ import { useDispatch } from "react-redux";
 import { Action, addToken } from '../../../store/tokens/Actions';
 import { toast } from 'react-toastify';
 
+
 function Navbar() {
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
     );
-
+    const dispatch = useDispatch();
     let navigate = useNavigate();
 
     function goLogout() {
